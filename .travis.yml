@@ -2,6 +2,9 @@ language: php
 
 sudo: false
 
+services:
+  - redis-server
+
 notifications:
     email:
         on_success: never

@@ -3,11 +3,4 @@
     <description>My custom rule set that checks my code.</description>
 
     <rule ref="PSR2"/>
-
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="80"/>
-            <property name="absoluteLineLimit" value="0"/>
-        </properties>
-    </rule>
 </ruleset>

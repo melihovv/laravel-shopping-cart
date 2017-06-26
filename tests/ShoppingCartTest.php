@@ -2,27 +2,48 @@
 
 namespace Melihovv\ShoppingCart\Tests;
 
-use Melihovv\ShoppingCart\Facades\ShoppingCart;
-use Melihovv\ShoppingCart\ServiceProvider;
 use Orchestra\Testbench\TestCase;
+
+require_once __DIR__ . '/../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
 
 class ShoppingCartTest extends TestCase
 {
-    protected function getPackageProviders()
+    use ShoppingCartTester;
+
+    public function testAddItemToCart()
     {
-        return [ServiceProvider::class];
+        $this->addItemToCart();
+
+        assertEquals(1, \Cart::count());
+
+        $this->addItemToCart(2);
+
+        assertEquals(2, \Cart::count());
     }
 
-    protected function getPackageAliases()
+    public function testRemoveItemFromCart()
     {
-        return [
-            'ShoppingCart' => ShoppingCart::class,
-        ];
+        $items = $this->addItemsToCart();
+
+        \Cart::remove($items[2]->getUniqueId());
+
+        assertEquals(4, \Cart::count());
     }
 
-    // TODO
-    public function testDemo()
+    public function testUpdateQuantity()
     {
-        $this->assertEquals(1, 1);
+        $cartItem = $this->addItemToCart(1, '', 100, 5);
+        \Cart::setQuantity($cartItem->getUniqueId(), 10);
+
+        assertEquals(10, \Cart::get($cartItem->getUniqueId())->quantity);
+    }
+
+    public function testClearCart()
+    {
+        $this->addItemsToCart();
+
+        \Cart::clear();
+
+        assertEquals(0, \Cart::count());
     }
 }
