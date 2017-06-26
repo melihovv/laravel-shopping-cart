@@ -1,0 +1,48 @@
+{
+  "name": "melihovv/laravel-shopping-cart",
+  "description": "Shopping cart package for laravel",
+  "license": "MIT",
+  "keywords": [
+    "cart",
+    "shopping cart",
+    "laravel"
+  ],
+  "authors": [
+    {
+      "name": "Alexander Melihov",
+      "email": "amelihovv@ya.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Melihovv\\ShoppingCart\\": "src/ShoppingCart"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Melihovv\\ShoppingCart\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.1.0|~3.2.0|~3.3.0|~3.4.0",
+    "phpunit/phpunit": "~4.0|~5.0",
+    "phpmd/phpmd": "^2.6",
+    "squizlabs/php_codesniffer": "^2.7"
+  },
+  "scripts": {
+    "phpunit": "phpunit",
+    "phpmd": "phpmd src/ShoppingCart text ./phpmd-rules.xml",
+    "phpcs": "phpcs --standard=./phpcs-rules.xml --encoding=utf-8 src/ShoppingCart",
+    "phpcbf": "phpcbf --standard=./phpcs-rules.xml --encoding=utf-8 src/ShoppingCart"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Melihovv\\ShoppingCart\\ServiceProvider"
+      ]
+    }
+  }
+}
