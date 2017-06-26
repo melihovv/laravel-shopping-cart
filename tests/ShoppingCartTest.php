@@ -21,7 +21,8 @@ class ShoppingCartTest extends TestCase
     }
 
     // TODO
-    public function testDemo() {
+    public function testDemo()
+    {
         $this->assertEquals(1, 1);
     }
 }

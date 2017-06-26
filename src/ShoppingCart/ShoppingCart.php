@@ -4,5 +4,4 @@ namespace Melihovv\ShoppingCart;
 
 class ShoppingCart
 {
-
 }
