@@ -262,6 +262,8 @@ class ShoppingCart
      * Store the current instance of the cart.
      *
      * @param $id
+     *
+     * @return $this
      */
     public function store($id)
     {
@@ -273,12 +275,16 @@ class ShoppingCart
                 'coupons' => $this->coupons,
             ])
         );
+
+        return $this;
     }
 
     /**
      * Store the specified instance of the cart.
      *
      * @param $id
+     *
+     * @return $this
      */
     public function restore($id)
     {
@@ -293,6 +299,8 @@ class ShoppingCart
         $this->coupons = $unserialized['coupons'];
 
         $this->instance($cart->instance);
+
+        return $this;
     }
 
     /**
