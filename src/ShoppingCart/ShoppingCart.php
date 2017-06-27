@@ -222,6 +222,16 @@ class ShoppingCart
     }
 
     /**
+     * Get coupons.
+     *
+     * @return Collection
+     */
+    public function coupons()
+    {
+        return $this->coupons;
+    }
+
+    /**
      * Set shopping cart instance name.
      *
      * @param string $name
@@ -258,7 +268,10 @@ class ShoppingCart
         $this->repo->createOrUpdate(
             $id,
             $this->instanceName,
-            serialize($this->content)
+            serialize([
+                'content' => $this->content,
+                'coupons' => $this->coupons,
+            ])
         );
     }
 
@@ -275,7 +288,10 @@ class ShoppingCart
             return;
         }
 
-        $this->content = unserialize($cart->content);
+        $unserialized = unserialize($cart->content);
+        $this->content = $unserialized['content'];
+        $this->coupons = $unserialized['coupons'];
+
         $this->instance($cart->instance);
     }
 
