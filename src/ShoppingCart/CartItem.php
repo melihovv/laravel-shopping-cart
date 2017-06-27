@@ -55,10 +55,10 @@ class CartItem implements Arrayable
      * CartItem constructor.
      *
      * @param int|string $id
-     * @param string $name
-     * @param int|float $price
-     * @param int $quantity
-     * @param array $options
+     * @param string     $name
+     * @param int|float  $price
+     * @param int        $quantity
+     * @param array      $options
      */
     public function __construct($id, $name, $price, $quantity, array $options = [])
     {
@@ -74,6 +74,7 @@ class CartItem implements Arrayable
      * Create a new instance from the given array.
      *
      * @param array $attributes
+     *
      * @return $this
      */
     public static function fromArray(array $attributes)

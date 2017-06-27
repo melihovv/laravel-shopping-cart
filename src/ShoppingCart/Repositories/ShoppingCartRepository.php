@@ -20,6 +20,7 @@ interface ShoppingCartRepository
      *
      * @param string $id
      * @param string $instanceName
+     *
      * @return stdClass|null
      */
     public function findByIdAndInstanceName($id, $instanceName);

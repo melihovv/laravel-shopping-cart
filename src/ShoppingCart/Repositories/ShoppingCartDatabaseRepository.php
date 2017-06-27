@@ -28,6 +28,7 @@ class ShoppingCartDatabaseRepository implements ShoppingCartRepository
      *
      * @param string $id
      * @param string $instanceName
+     *
      * @return stdClass|null
      */
     public function findByIdAndInstanceName($id, $instanceName)
@@ -89,6 +90,7 @@ class ShoppingCartDatabaseRepository implements ShoppingCartRepository
      *
      * @param $id
      * @param $instanceName
+     *
      * @return bool
      */
     protected function exists($id, $instanceName)
