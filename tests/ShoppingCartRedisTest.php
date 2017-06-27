@@ -2,6 +2,7 @@
 
 namespace Melihovv\ShoppingCart\Tests;
 
+use Illuminate\Support\Facades\Redis;
 use Melihovv\ShoppingCart\Repositories\ShoppingCartRedisRepository;
 use Orchestra\Testbench\TestCase;
 
@@ -23,7 +24,7 @@ class ShoppingCartRedisTest extends TestCase
 
     protected function tearDown()
     {
-        $this->app['redis.connection']->flushAll();
+        Redis::flushAll();
 
         parent::tearDown();
     }

@@ -2,25 +2,11 @@
 
 namespace Melihovv\ShoppingCart\Repositories;
 
+use Illuminate\Support\Facades\Redis;
 use stdClass;
 
 class ShoppingCartRedisRepository implements ShoppingCartRepository
 {
-    /**
-     * Redis connection.
-     *
-     * @var \Illuminate\Redis\Connections\PredisConnection|mixed
-     */
-    private $redis;
-
-    /**
-     * ShoppingCartRedisRepository constructor.
-     */
-    public function __construct()
-    {
-        $this->redis = app()->make('redis.connection');
-    }
-
     /**
      * Save shopping cart.
      *
@@ -30,7 +16,7 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
      */
     public function createOrUpdate($id, $instanceName, $content)
     {
-        $this->redis->set($this->getKey($id, $instanceName), $content);
+        Redis::set($this->getKey($id, $instanceName), $content);
     }
 
     /**
@@ -43,7 +29,7 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
      */
     public function findByIdAndInstanceName($id, $instanceName)
     {
-        $content = $this->redis->get($this->getKey($id, $instanceName));
+        $content = Redis::get($this->getKey($id, $instanceName));
 
         if ($content === null) {
             return;
@@ -64,7 +50,7 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
      */
     public function remove($id, $instanceName)
     {
-        $this->redis->del($this->getKey($id, $instanceName));
+        Redis::del($this->getKey($id, $instanceName));
     }
 
     /**
