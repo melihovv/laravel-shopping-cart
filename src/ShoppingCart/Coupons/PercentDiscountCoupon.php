@@ -13,7 +13,7 @@ class PercentDiscountCoupon extends Coupon
      * PercentCoupon constructor.
      *
      * @param string $name
-     * @param float $discount
+     * @param float  $discount
      */
     public function __construct($name, $discount)
     {
@@ -26,6 +26,7 @@ class PercentDiscountCoupon extends Coupon
      * Apply coupon to total price.
      *
      * @param $total
+     *
      * @return float Discount.
      */
     public function apply($total)

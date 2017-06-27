@@ -8,6 +8,7 @@ abstract class Coupon
 
     /**
      * Coupon constructor.
+     *
      * @param string $name
      */
     public function __construct($name)
@@ -19,6 +20,7 @@ abstract class Coupon
      * Apply coupon to total price.
      *
      * @param $total
+     *
      * @return float Discount.
      */
     abstract public function apply($total);
