@@ -3,6 +3,7 @@
 namespace Melihovv\ShoppingCart;
 
 use Illuminate\Support\Collection;
+use Melihovv\ShoppingCart\Coupons\Coupon;
 use Melihovv\ShoppingCart\Repositories\ShoppingCartRepository;
 
 /**
@@ -40,6 +41,13 @@ class ShoppingCart
     private $content;
 
     /**
+     * Coupons.
+     *
+     * @var Collection
+     */
+    private $coupons;
+
+    /**
      * ShoppingCart constructor.
      *
      * @param ShoppingCartRepository $repo
@@ -49,6 +57,7 @@ class ShoppingCart
         $this->repo = $repo;
         $this->instance(self::DEFAULT_INSTANCE_NAME);
         $this->content = new Collection();
+        $this->coupons = new Collection();
     }
 
     /**
@@ -161,7 +170,7 @@ class ShoppingCart
     }
 
     /**
-     * Get total price.
+     * Get total price without coupons.
      *
      * @return float
      */
@@ -170,6 +179,36 @@ class ShoppingCart
         return $this->content->sum(function ($cartItem) {
             return $cartItem->getTotal();
         });
+    }
+
+    /**
+     * Get total price with coupons.
+     *
+     * @return float
+     */
+    public function getTotalWithCoupons()
+    {
+        $total = $this->getTotal();
+        $totalWithCoupons = $total;
+
+        $this->coupons->each(function ($coupon) use ($total, &$totalWithCoupons) {
+            /**
+             * @var Coupon $coupon
+             */
+            $totalWithCoupons -= $coupon->apply($total);
+        });
+
+        return $totalWithCoupons;
+    }
+
+    /**
+     * Add coupon.
+     *
+     * @param Coupon $coupon
+     */
+    public function addCoupon(Coupon $coupon)
+    {
+        $this->coupons->push($coupon);
     }
 
     /**
