@@ -58,10 +58,11 @@ class ShoppingCart
      * quantity.
      *
      * @param string|int $id
-     * @param string $name
-     * @param int|float $price
-     * @param int $quantity
-     * @param array $options
+     * @param string     $name
+     * @param int|float  $price
+     * @param int        $quantity
+     * @param array      $options
+     *
      * @return CartItem
      */
     public function add($id, $name, $price, $quantity, $options = [])
@@ -82,6 +83,7 @@ class ShoppingCart
      * Remove the item with the specified unique id from shopping cart.
      *
      * @param string|int $uniqueId
+     *
      * @return bool
      */
     public function remove($uniqueId)
@@ -99,6 +101,7 @@ class ShoppingCart
      * Check if an item with specified unique id is in shopping cart.
      *
      * @param string|int $uniqueId
+     *
      * @return bool
      */
     public function has($uniqueId)
@@ -110,6 +113,7 @@ class ShoppingCart
      * Get the item with the specified unique id from shopping cart.
      *
      * @param string|int $uniqueId
+     *
      * @return CartItem|null
      */
     public function get($uniqueId)
@@ -122,6 +126,7 @@ class ShoppingCart
      *
      * @param $uniqueId
      * @param $quantity
+     *
      * @return bool
      */
     public function setQuantity($uniqueId, $quantity)
@@ -159,6 +164,7 @@ class ShoppingCart
      * Set shopping cart instance name.
      *
      * @param string $name
+     *
      * @return $this
      */
     public function instance($name)

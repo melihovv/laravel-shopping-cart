@@ -22,10 +22,11 @@ trait ShoppingCartTester
     }
 
     /**
-     * @param int $id
+     * @param int    $id
      * @param string $name
-     * @param int $price
-     * @param int $quantity
+     * @param int    $price
+     * @param int    $quantity
+     *
      * @return CartItem
      */
     protected function addItemToCart(
@@ -39,6 +40,7 @@ trait ShoppingCartTester
 
     /**
      * @param int $amount
+     *
      * @return Collection
      */
     protected function addItemsToCart($amount = 5)

@@ -38,6 +38,7 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
      *
      * @param string $id
      * @param string $instanceName
+     *
      * @return stdClass|null
      */
     public function findByIdAndInstanceName($id, $instanceName)
@@ -45,10 +46,10 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
         $content = $this->redis->get($this->getKey($id, $instanceName));
 
         if ($content === null) {
-            return null;
+            return;
         }
 
-        return (object)[
+        return (object) [
             'id' => $id,
             'instance' => $instanceName,
             'content' => $content,
@@ -71,6 +72,7 @@ class ShoppingCartRedisRepository implements ShoppingCartRepository
      *
      * @param $id
      * @param $instanceName
+     *
      * @return string
      */
     protected function getKey($id, $instanceName)
