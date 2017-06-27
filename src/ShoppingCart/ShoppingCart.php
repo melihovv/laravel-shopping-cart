@@ -131,6 +131,16 @@ class ShoppingCart
     }
 
     /**
+     * Get shopping cart content.
+     *
+     * @return Collection
+     */
+    public function content()
+    {
+        return $this->content;
+    }
+
+    /**
      * Get the quantity of the cart item with specified unique id.
      *
      * @param $uniqueId

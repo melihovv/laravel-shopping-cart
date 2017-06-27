@@ -2,6 +2,7 @@
 
 namespace Melihovv\ShoppingCart\Tests;
 
+use Illuminate\Support\Collection;
 use Melihovv\ShoppingCart\Coupons\FixedDiscountCoupon;
 use Melihovv\ShoppingCart\Coupons\PercentDiscountCoupon;
 use Orchestra\Testbench\TestCase;
@@ -64,5 +65,15 @@ class ShoppingCartTest extends TestCase
         \Cart::addCoupon(new PercentDiscountCoupon('percent coupon', 0.05));
 
         assertEquals(1000 - 300 - 1000 * 0.05, \Cart::getTotalWithCoupons());
+    }
+
+    public function testContent()
+    {
+        $this->addItemsToCart();
+
+        $content = \Cart::content();
+
+        assertEquals(5, $content->count());
+        assertInstanceOf(Collection::class, $content);
     }
 }
