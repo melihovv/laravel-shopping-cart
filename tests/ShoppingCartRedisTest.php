@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Redis;
 use Melihovv\ShoppingCart\Repositories\ShoppingCartRedisRepository;
 use Orchestra\Testbench\TestCase;
 
-require_once __DIR__ . '/../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
-
 class ShoppingCartRedisTest extends TestCase
 {
     use ShoppingCartRepositoryTester;

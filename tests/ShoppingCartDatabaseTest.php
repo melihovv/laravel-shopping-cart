@@ -4,8 +4,6 @@ namespace Melihovv\ShoppingCart\Tests;
 
 use Orchestra\Testbench\TestCase;
 
-require_once __DIR__ . '/../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
-
 class ShoppingCartDatabaseTest extends TestCase
 {
     use ShoppingCartRepositoryTester;

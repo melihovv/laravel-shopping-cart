@@ -21,7 +21,10 @@
   "autoload-dev": {
     "psr-4": {
       "Melihovv\\ShoppingCart\\Tests\\": "tests/"
-    }
+    },
+    "files": [
+      "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+    ]
   },
   "require": {
     "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",

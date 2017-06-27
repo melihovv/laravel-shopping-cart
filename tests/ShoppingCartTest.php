@@ -7,8 +7,6 @@ use Melihovv\ShoppingCart\Coupons\FixedDiscountCoupon;
 use Melihovv\ShoppingCart\Coupons\PercentDiscountCoupon;
 use Orchestra\Testbench\TestCase;
 
-require_once __DIR__ . '/../vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
-
 class ShoppingCartTest extends TestCase
 {
     use ShoppingCartTester;
