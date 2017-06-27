@@ -218,6 +218,11 @@ class ShoppingCart
         $this->instance($cart->instance);
     }
 
+    /**
+     * Delete current shopping cart instance from storage.
+     *
+     * @param $id
+     */
     public function destroy($id)
     {
         $this->repo->remove($id, $this->instanceName);
