@@ -32,7 +32,7 @@ class ShoppingCartTest extends TestCase
 
     public function testUpdateQuantity()
     {
-        $cartItem = $this->addItemToCart(1, '', 100, 5);
+        $cartItem = $this->addItemToCart(1, 'iPhone 7', 100, 5);
         \Cart::setQuantity($cartItem->getUniqueId(), 10);
 
         assertEquals(10, \Cart::get($cartItem->getUniqueId())->quantity);
@@ -45,5 +45,12 @@ class ShoppingCartTest extends TestCase
         \Cart::clear();
 
         assertEquals(0, \Cart::count());
+    }
+
+    public function testGetTotal()
+    {
+        $this->addItemsToCart();
+
+        assertEquals(5000, \Cart::getTotal());
     }
 }

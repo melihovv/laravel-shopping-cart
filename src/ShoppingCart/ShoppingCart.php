@@ -161,6 +161,18 @@ class ShoppingCart
     }
 
     /**
+     * Get total price.
+     *
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->content->sum(function ($cartItem) {
+            return $cartItem->getTotal();
+        });
+    }
+
+    /**
      * Set shopping cart instance name.
      *
      * @param string $name

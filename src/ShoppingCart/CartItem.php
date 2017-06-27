@@ -3,6 +3,7 @@
 namespace Melihovv\ShoppingCart;
 
 use Illuminate\Contracts\Support\Arrayable;
+use InvalidArgumentException;
 
 class CartItem implements Arrayable
 {
@@ -55,17 +56,34 @@ class CartItem implements Arrayable
      * CartItem constructor.
      *
      * @param int|string $id
-     * @param string     $name
-     * @param int|float  $price
-     * @param int        $quantity
-     * @param array      $options
+     * @param string $name
+     * @param int|float $price
+     * @param int $quantity
+     * @param array $options
+     * @throws InvalidArgumentException
      */
     public function __construct($id, $name, $price, $quantity, array $options = [])
     {
+        if (empty($id)) {
+            throw new InvalidArgumentException('Please supply a valid identifier.');
+        }
+
+        if (empty($name)) {
+            throw new InvalidArgumentException('Please supply a valid name.');
+        }
+
+        if (!is_numeric($price) || strlen($price) < 0) {
+            throw new InvalidArgumentException('Please supply a valid price.');
+        }
+
+        if (!is_int($quantity) || strlen($quantity) < 0) {
+            throw new InvalidArgumentException('Please supply a valid price.');
+        }
+
         $this->id = $id;
         $this->name = $name;
-        $this->price = $price;
-        $this->quantity = $quantity;
+        $this->price = (float)$price;
+        $this->quantity = (int)$quantity;
         $this->options = $options;
         $this->uniqueId = $this->generateUniqueId();
     }
@@ -76,6 +94,7 @@ class CartItem implements Arrayable
      * @param array $attributes
      *
      * @return $this
+     * @throws InvalidArgumentException
      */
     public static function fromArray(array $attributes)
     {
@@ -101,11 +120,25 @@ class CartItem implements Arrayable
     }
 
     /**
+     * Get cart item unique identifier.
+     *
      * @return string
      */
     public function getUniqueId()
     {
         return $this->uniqueId;
+    }
+
+    /**
+     * Get total price.
+     *
+     * Total price = price * quantity.
+     *
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->price * $this->quantity;
     }
 
     /**
@@ -116,7 +149,7 @@ class CartItem implements Arrayable
     public function toArray()
     {
         return [
-            'uniqueId' => $this->uniqueId,
+            'unique_id' => $this->uniqueId,
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
