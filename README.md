@@ -170,7 +170,11 @@ You can choose one by specifying repository class name in config
 // config/laravel-shopping-cart.php
 
 'repository' => \Melihovv\ShoppingCart\Repositories\ShoppingCartDatabaseRepository::class,
+// or
+'repository' => \Melihovv\ShoppingCart\Repositories\ShoppingCartRedisRepository::class,
 ```
+
+In order to use redis storage you also need to install `predis/predis` package.
 
 ### Cart::store()
 
