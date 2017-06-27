@@ -37,6 +37,12 @@ php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider" --
 php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider" --tag="migrations"
 ```
 
+### Run migrations
+
+```
+php artisan migrate
+```
+
 ## Overview
 
 * [Usage](#usage)
