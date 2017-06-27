@@ -36,3 +36,4 @@ script:
   - composer run phpunit
   - composer run phpcs
   - composer run phpmd
+  - composer run phpcpd
