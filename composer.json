@@ -27,18 +27,18 @@
     ]
   },
   "require": {
-    "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
-    "illuminate/database": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
     "illuminate/container": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
-    "illuminate/redis": "~5.1.0|~5.2.0|~5.3.0|~5.4.0"
+    "illuminate/database": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+    "illuminate/redis": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+    "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0"
   },
   "require-dev": {
     "orchestra/testbench": "~3.1.0|~3.2.0|~3.3.0|~3.4.0",
-    "phpunit/phpunit": "~4.0|~5.0",
     "phpmd/phpmd": "^2.6",
-    "squizlabs/php_codesniffer": "^2.7",
+    "phpunit/phpunit": "~4.0|~5.0",
     "predis/predis": "^1.1",
-    "sebastian/phpcpd": "^3.0"
+    "sebastian/phpcpd": "^3.0",
+    "squizlabs/php_codesniffer": "^2.7"
   },
   "scripts": {
     "phpunit": "phpunit",
@@ -53,5 +53,10 @@
         "Melihovv\\ShoppingCart\\ServiceProvider"
       ]
     }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
   }
 }
