@@ -4,6 +4,7 @@ Laravel Shopping Cart
 [![Build Status](https://travis-ci.org/melihovv/laravel-shopping-cart.svg?branch=master)](https://travis-ci.org/melihovv/laravel-shopping-cart)
 [![styleci](https://styleci.io/repos/95455977/shield)](https://styleci.io/repos/95455977)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c/small.png)](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/melihovv/laravel-shopping-cart/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/melihovv/laravel-shopping-cart/?branch=master)
 [![Packagist](https://img.shields.io/packagist/v/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
 [![Packagist](https://poser.pugx.org/melihovv/laravel-shopping-cart/d/total.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
 [![Packagist](https://img.shields.io/packagist/l/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
