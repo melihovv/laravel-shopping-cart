@@ -3,6 +3,7 @@ Laravel Shopping Cart
 
 [![Build Status](https://travis-ci.org/melihovv/laravel-shopping-cart.svg?branch=master)](https://travis-ci.org/melihovv/laravel-shopping-cart)
 [![styleci](https://styleci.io/repos/95455977/shield)](https://styleci.io/repos/95455977)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c/mini.png)](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c)
 [![Packagist](https://img.shields.io/packagist/v/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
 [![Packagist](https://poser.pugx.org/melihovv/laravel-shopping-cart/d/total.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
 [![Packagist](https://img.shields.io/packagist/l/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
@@ -26,7 +27,7 @@ Melihovv\ShoppingCart\ServiceProvider::class,
 
 ### Register facade
 In the same file in `aliases` section add the following line
-```php 
+```php
 'Cart' => Melihovv\ShoppingCart\Facades\ShoppingCart::class,
 ```
 
