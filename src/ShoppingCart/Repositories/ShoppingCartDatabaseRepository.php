@@ -5,7 +5,7 @@ namespace Melihovv\ShoppingCart\Repositories;
 use Illuminate\Database\DatabaseManager;
 use stdClass;
 
-class ShoppingCartDatabaseRepository implements ShoppingCartRepository
+class ShoppingCartDatabaseRepository implements ShoppingCartRepositoryInterface
 {
     /**
      * Save shopping cart.

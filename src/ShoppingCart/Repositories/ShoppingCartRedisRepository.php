@@ -5,7 +5,7 @@ namespace Melihovv\ShoppingCart\Repositories;
 use Illuminate\Support\Facades\Redis;
 use stdClass;
 
-class ShoppingCartRedisRepository implements ShoppingCartRepository
+class ShoppingCartRedisRepository implements ShoppingCartRepositoryInterface
 {
     /**
      * Save shopping cart.

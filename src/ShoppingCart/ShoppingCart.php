@@ -4,7 +4,7 @@ namespace Melihovv\ShoppingCart;
 
 use Illuminate\Support\Collection;
 use Melihovv\ShoppingCart\Coupons\Coupon;
-use Melihovv\ShoppingCart\Repositories\ShoppingCartRepository;
+use Melihovv\ShoppingCart\Repositories\ShoppingCartRepositoryInterface;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
@@ -29,7 +29,7 @@ class ShoppingCart
     /**
      * Repository for cart store.
      *
-     * @var ShoppingCartRepository
+     * @var ShoppingCartRepositoryInterface
      */
     private $repo;
 
@@ -50,9 +50,9 @@ class ShoppingCart
     /**
      * ShoppingCart constructor.
      *
-     * @param ShoppingCartRepository $repo
+     * @param ShoppingCartRepositoryInterface $repo
      */
-    public function __construct(ShoppingCartRepository $repo)
+    public function __construct(ShoppingCartRepositoryInterface $repo)
     {
         $this->repo = $repo;
         $this->instance(self::DEFAULT_INSTANCE_NAME);
@@ -186,7 +186,7 @@ class ShoppingCart
      */
     public function getTotal()
     {
-        return $this->content->sum(function ($cartItem) {
+        return $this->content->sum(function (CartItem $cartItem) {
             return $cartItem->getTotal();
         });
     }
@@ -201,7 +201,7 @@ class ShoppingCart
         $total = $this->getTotal();
         $totalWithCoupons = $total;
 
-        $this->coupons->each(function ($coupon) use ($total, &$totalWithCoupons) {
+        $this->coupons->each(function (Coupon $coupon) use ($total, &$totalWithCoupons) {
             /**
              * @var Coupon $coupon
              */

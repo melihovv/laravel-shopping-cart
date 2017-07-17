@@ -4,7 +4,7 @@ namespace Melihovv\ShoppingCart\Repositories;
 
 use stdClass;
 
-interface ShoppingCartRepository
+interface ShoppingCartRepositoryInterface
 {
     /**
      * Save shopping cart.
