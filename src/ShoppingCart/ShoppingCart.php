@@ -270,10 +270,10 @@ class ShoppingCart
         $this->repo->createOrUpdate(
             $id,
             $this->instanceName,
-            serialize([
+            json_encode(serialize([
                 'content' => $this->content,
                 'coupons' => $this->coupons,
-            ])
+            ]))
         );
 
         return $this;
@@ -294,7 +294,7 @@ class ShoppingCart
             return;
         }
 
-        $unserialized = unserialize($cart->content);
+        $unserialized = unserialize(json_decode($cart->content));
         $this->content = $unserialized['content'];
         $this->coupons = $unserialized['coupons'];
 
