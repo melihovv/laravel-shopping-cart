@@ -3,6 +3,7 @@
 namespace Melihovv\ShoppingCart;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
 use InvalidArgumentException;
 
 class CartItem implements Arrayable
@@ -105,7 +106,7 @@ class CartItem implements Arrayable
             $attributes['name'],
             $attributes['price'],
             $attributes['quantity'],
-            array_get($attributes, 'options', [])
+            Arr::get($attributes, 'options', [])
         );
     }
 
