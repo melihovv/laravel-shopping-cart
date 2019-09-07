@@ -22,31 +22,21 @@
   "autoload-dev": {
     "psr-4": {
       "Melihovv\\ShoppingCart\\Tests\\": "tests/"
-    },
-    "files": [
-      "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
-    ]
+    }
   },
   "require": {
-    "illuminate/container": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-    "illuminate/database": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-    "illuminate/redis": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-    "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0"
+    "illuminate/container": "^6.0",
+    "illuminate/database": "^6.0",
+    "illuminate/redis": "^6.0",
+    "illuminate/support": "^6.0"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
-    "phpmd/phpmd": "^2.6",
-    "phpunit/phpunit": "~6.0|~7.0",
-    "predis/predis": "^1.1",
-    "sebastian/phpcpd": "^3.0",
-    "squizlabs/php_codesniffer": "^2.7"
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0",
+    "predis/predis": "^1.1"
   },
   "scripts": {
-    "phpunit": "phpunit",
-    "phpmd": "phpmd src/ShoppingCart text ./phpmd-rules.xml",
-    "phpcs": "phpcs --standard=./phpcs-rules.xml --encoding=utf-8 src/ShoppingCart",
-    "phpcbf": "phpcbf --standard=./phpcs-rules.xml --encoding=utf-8 src/ShoppingCart",
-    "phpcpd": "phpcpd src/ShoppingCart"
+    "phpunit": "phpunit"
   },
   "extra": {
     "laravel": {

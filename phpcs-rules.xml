@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<ruleset name="My PHPCS rule set">
-    <description>My custom rule set that checks my code.</description>
-
-    <rule ref="PSR2"/>
-</ruleset>

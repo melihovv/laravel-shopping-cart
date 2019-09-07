@@ -28,7 +28,6 @@ class FixedDiscountCoupon extends Coupon
      * @param $total
      *
      * @return float Discount.
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function apply($total)
     {

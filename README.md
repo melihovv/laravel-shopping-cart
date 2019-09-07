@@ -3,8 +3,6 @@ Laravel Shopping Cart
 
 [![Build Status](https://travis-ci.org/melihovv/laravel-shopping-cart.svg?branch=master)](https://travis-ci.org/melihovv/laravel-shopping-cart)
 [![styleci](https://styleci.io/repos/95455977/shield)](https://styleci.io/repos/95455977)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c/mini.png)](https://insight.sensiolabs.com/projects/b244d9ba-7db5-4452-a97f-3032e40c999c)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/melihovv/laravel-shopping-cart/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/melihovv/laravel-shopping-cart/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/melihovv/laravel-shopping-cart/badge.svg?branch=master)](https://coveralls.io/github/melihovv/laravel-shopping-cart?branch=master)
 
 [![Packagist](https://img.shields.io/packagist/v/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
@@ -16,22 +14,6 @@ Laravel Shopping Cart
 Install via composer
 ```
 composer require melihovv/laravel-shopping-cart
-```
-
-
-### Add service provider
-
-Add Service Provider to `config/app.php` in `providers` section (this and next
-step are optional step if you use laravel>=5.5 with package auto discovery
-feature)
-```php
-Melihovv\ShoppingCart\ServiceProvider::class,
-```
-
-### Register facade
-In the same file in `aliases` section add the following line
-```php
-'Cart' => Melihovv\ShoppingCart\Facades\ShoppingCart::class,
 ```
 
 ### Publish configuration file and migrations

@@ -6,9 +6,6 @@ use Illuminate\Support\Collection;
 use Melihovv\ShoppingCart\Coupons\Coupon;
 use Melihovv\ShoppingCart\Repositories\ShoppingCartRepositoryInterface;
 
-/**
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
- */
 class ShoppingCart
 {
     /**

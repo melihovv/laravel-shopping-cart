@@ -11,6 +11,6 @@ class CartItemTest extends TestCase
     {
         $cartItem = new CartItem(1, 'iPhone', 100, 10);
 
-        assertEquals($cartItem->getTotal(), 1000);
+        $this->assertEquals($cartItem->getTotal(), 1000);
     }
 }

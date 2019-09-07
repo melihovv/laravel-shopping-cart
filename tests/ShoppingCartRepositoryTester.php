@@ -19,12 +19,12 @@ trait ShoppingCartRepositoryTester
         \Cart::store(1);
         \Cart::clear();
 
-        assertEquals(0, \Cart::count());
+        $this->assertEquals(0, \Cart::count());
 
         \Cart::restore(1);
 
-        assertEquals(5, \Cart::count());
-        assertEquals(2, \Cart::coupons()->count());
-        assertEquals('shopping-cart.default', \Cart::currentInstance());
+        $this->assertEquals(5, \Cart::count());
+        $this->assertEquals(2, \Cart::coupons()->count());
+        $this->assertEquals('shopping-cart.default', \Cart::currentInstance());
     }
 }

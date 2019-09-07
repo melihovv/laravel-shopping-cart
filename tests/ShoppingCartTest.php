@@ -15,11 +15,11 @@ class ShoppingCartTest extends TestCase
     {
         $this->addItemToCart();
 
-        assertEquals(1, \Cart::count());
+        $this->assertEquals(1, \Cart::count());
 
         $this->addItemToCart(2);
 
-        assertEquals(2, \Cart::count());
+        $this->assertEquals(2, \Cart::count());
     }
 
     public function testRemoveItemFromCart()
@@ -28,7 +28,7 @@ class ShoppingCartTest extends TestCase
 
         \Cart::remove($items[2]->getUniqueId());
 
-        assertEquals(4, \Cart::count());
+        $this->assertEquals(4, \Cart::count());
     }
 
     public function testUpdateQuantity()
@@ -36,7 +36,7 @@ class ShoppingCartTest extends TestCase
         $cartItem = $this->addItemToCart(1, 'iPhone 7', 100, 5);
         \Cart::setQuantity($cartItem->getUniqueId(), 10);
 
-        assertEquals(10, \Cart::get($cartItem->getUniqueId())->quantity);
+        $this->assertEquals(10, \Cart::get($cartItem->getUniqueId())->quantity);
     }
 
     public function testClearCart()
@@ -45,14 +45,14 @@ class ShoppingCartTest extends TestCase
 
         \Cart::clear();
 
-        assertEquals(0, \Cart::count());
+        $this->assertEquals(0, \Cart::count());
     }
 
     public function testGetTotal()
     {
         $this->addItemsToCart();
 
-        assertEquals(5000, \Cart::getTotal());
+        $this->assertEquals(5000, \Cart::getTotal());
     }
 
     public function testGetTotalWithCoupons()
@@ -62,7 +62,7 @@ class ShoppingCartTest extends TestCase
         \Cart::addCoupon(new FixedDiscountCoupon('fixed coupon', 300));
         \Cart::addCoupon(new PercentDiscountCoupon('percent coupon', 0.05));
 
-        assertEquals(1000 - 300 - 1000 * 0.05, \Cart::getTotalWithCoupons());
+        $this->assertEquals(1000 - 300 - 1000 * 0.05, \Cart::getTotalWithCoupons());
     }
 
     public function testContent()
@@ -71,7 +71,7 @@ class ShoppingCartTest extends TestCase
 
         $content = \Cart::content();
 
-        assertEquals(5, $content->count());
-        assertInstanceOf(Collection::class, $content);
+        $this->assertEquals(5, $content->count());
+        $this->assertInstanceOf(Collection::class, $content);
     }
 }
