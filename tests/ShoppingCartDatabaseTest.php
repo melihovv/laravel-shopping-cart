@@ -12,7 +12,7 @@ class ShoppingCartDatabaseTest extends TestCase
     {
         $config = $app['config'];
 
-        $config->set('laravel-shopping-cart.database.connection', 'testing');
+        $config->set('shopping-cart.database.connection', 'testing');
         $config->set('database.default', 'testing');
         $config->set('database.connections.testing', [
             'driver' => 'sqlite',
@@ -21,12 +21,12 @@ class ShoppingCartDatabaseTest extends TestCase
         ]);
     }
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->app->afterResolving('migrator', function ($migrator) {
-            $migrator->path(realpath(__DIR__ . '/../src/database/migrations'));
+            $migrator->path(realpath(__DIR__.'/../src/database/migrations'));
         });
 
         $this->artisan('migrate', ['--database' => 'testing']);

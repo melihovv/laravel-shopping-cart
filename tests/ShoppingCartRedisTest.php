@@ -15,14 +15,14 @@ class ShoppingCartRedisTest extends TestCase
         $config = $app['config'];
 
         $config->set(
-            'laravel-shopping-cart.repository',
+            'shopping-cart.repository',
             ShoppingCartRedisRepository::class
         );
 
         $config->set('database.redis.client', 'predis');
     }
 
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
         Redis::flushAll();
 

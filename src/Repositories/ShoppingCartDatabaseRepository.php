@@ -120,7 +120,7 @@ class ShoppingCartDatabaseRepository implements ShoppingCartRepositoryInterface
      */
     private function getTableName()
     {
-        return config('laravel-shopping-cart.database.table', 'shopping_cart');
+        return config('shopping-cart.database.table', 'shopping_cart');
     }
 
     /**
@@ -130,7 +130,7 @@ class ShoppingCartDatabaseRepository implements ShoppingCartRepositoryInterface
      */
     private function getConnectionName()
     {
-        $connection = config('laravel-shopping-cart.database.connection');
+        $connection = config('shopping-cart.database.connection');
 
         return is_null($connection) ? config('database.default') : $connection;
     }
