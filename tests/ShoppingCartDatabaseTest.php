@@ -21,12 +21,12 @@ class ShoppingCartDatabaseTest extends TestCase
         ]);
     }
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->app->afterResolving('migrator', function ($migrator) {
-            $migrator->path(realpath(__DIR__ . '/../src/database/migrations'));
+            $migrator->path(realpath(__DIR__.'/../src/database/migrations'));
         });
 
         $this->artisan('migrate', ['--database' => 'testing']);

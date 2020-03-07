@@ -22,7 +22,7 @@ class ShoppingCartRedisTest extends TestCase
         $config->set('database.redis.client', 'predis');
     }
 
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
         Redis::flushAll();
 

@@ -74,11 +74,11 @@ class CartItem implements Arrayable
             throw new InvalidArgumentException('Please supply a valid name.');
         }
 
-        if (!is_numeric($price) || strlen($price) < 0) {
+        if (! is_numeric($price) || strlen($price) < 0) {
             throw new InvalidArgumentException('Please supply a valid price.');
         }
 
-        if (!is_int($quantity) || strlen($quantity) < 0) {
+        if (! is_int($quantity) || strlen($quantity) < 0) {
             throw new InvalidArgumentException('Please supply a valid price.');
         }
 
@@ -119,7 +119,7 @@ class CartItem implements Arrayable
     {
         ksort($this->options);
 
-        return md5($this->id . serialize($this->options));
+        return md5($this->id.serialize($this->options));
     }
 
     /**

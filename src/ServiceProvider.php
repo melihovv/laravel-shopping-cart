@@ -4,9 +4,9 @@ namespace Melihovv\ShoppingCart;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    const CONFIG_PATH = __DIR__ . '/../config/shopping-cart.php';
+    const CONFIG_PATH = __DIR__.'/../config/shopping-cart.php';
 
-    const MIGRATIONS_PATH = __DIR__ . '/../migrations/';
+    const MIGRATIONS_PATH = __DIR__.'/../migrations/';
 
     public function boot()
     {
