@@ -12,7 +12,7 @@ class ShoppingCartDatabaseTest extends TestCase
     {
         $config = $app['config'];
 
-        $config->set('laravel-shopping-cart.database.connection', 'testing');
+        $config->set('shopping-cart.database.connection', 'testing');
         $config->set('database.default', 'testing');
         $config->set('database.connections.testing', [
             'driver' => 'sqlite',

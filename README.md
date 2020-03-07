@@ -1,9 +1,8 @@
 Laravel Shopping Cart
 =====================
 
-[![Build Status](https://travis-ci.org/melihovv/laravel-shopping-cart.svg?branch=master)](https://travis-ci.org/melihovv/laravel-shopping-cart)
+[![GitHub Workflow Status](https://github.com/melihovv/laravel-shopping-cart/workflows/Run%20tests/badge.svg)](https://github.com/melihovv/laravel-shopping-cart/actions)
 [![styleci](https://styleci.io/repos/95455977/shield)](https://styleci.io/repos/95455977)
-[![Coverage Status](https://coveralls.io/repos/github/melihovv/laravel-shopping-cart/badge.svg?branch=master)](https://coveralls.io/github/melihovv/laravel-shopping-cart?branch=master)
 
 [![Packagist](https://img.shields.io/packagist/v/melihovv/laravel-shopping-cart.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
 [![Packagist](https://poser.pugx.org/melihovv/laravel-shopping-cart/d/total.svg)](https://packagist.org/packages/melihovv/laravel-shopping-cart)
@@ -19,8 +18,7 @@ composer require melihovv/laravel-shopping-cart
 ### Publish configuration file and migrations
 
 ```
-php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider" --tag="config"
-php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider"
 ```
 
 ### Run migrations
@@ -153,7 +151,7 @@ Currently there are two possible storage to persist shopping cart:
 You can choose one by specifying repository class name in config
 
 ```php
-// config/laravel-shopping-cart.php
+// config/shopping-cart.php
 
 'repository' => \Melihovv\ShoppingCart\Repositories\ShoppingCartDatabaseRepository::class,
 // or

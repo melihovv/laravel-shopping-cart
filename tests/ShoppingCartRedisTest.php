@@ -15,7 +15,7 @@ class ShoppingCartRedisTest extends TestCase
         $config = $app['config'];
 
         $config->set(
-            'laravel-shopping-cart.repository',
+            'shopping-cart.repository',
             ShoppingCartRedisRepository::class
         );
 
