@@ -36,6 +36,16 @@ php artisan migrate
 
 ## Usage
 
+Regiser facade in config/app.php
+```
+'Cart' => 'Melihovv\ShoppingCart\Facades\ShoppingCart',
+```
+or
+```
+use Melihovv\ShoppingCart\Facades\ShoppingCart as Cart;
+```
+in the below examples.
+
 The shopping cart gives you the following methods to use:
 
 ### Cart::add()
