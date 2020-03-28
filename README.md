@@ -64,8 +64,8 @@ The shopping cart gives you the following methods to use:
 Add an item to the shopping cart.
 
 ```php
-$cartItem = Cart::add($id, $name, $price, $quantity);
-$cartItem = Cart::add($id, $name, $price, $quantity, [
+$cartItem = \Cart::add($id, $name, $price, $quantity);
+$cartItem = \Cart::add($id, $name, $price, $quantity, [
     'color' => 'white',
 ]);
 ```
@@ -76,11 +76,11 @@ Remove the item with the specified unique id from the shopping cart. Unique id
 is used to store items with the same `$id`, but different `$options`.
 
 ```php
-$cartItem = Cart::add($id, $name, $price, $quantity);
+$cartItem = \Cart::add($id, $name, $price, $quantity);
 
 // ...
 
-Cart::remove($cartItem->getUniqueId())
+\Cart::remove($cartItem->getUniqueId())
 ```
 
 ### Cart::has()
@@ -88,11 +88,11 @@ Cart::remove($cartItem->getUniqueId())
 Check if the shopping cart contains the item with the specified unique id.
 
 ```php
-$cartItem = Cart::add($id, $name, $price, $quantity);
+$cartItem = \Cart::add($id, $name, $price, $quantity);
 
 // ...
 
-if (Cart::has($cartItem->getUniqueId())) {
+if (\Cart::has($cartItem->getUniqueId())) {
     // Do smth.
 }
 ```
@@ -102,22 +102,34 @@ if (Cart::has($cartItem->getUniqueId())) {
 Get an item in the shopping cart by its unique id.
 
 ```php
-$cartItem = Cart::add($id, $name, $price, $quantity);
+$cartItem = \Cart::add($id, $name, $price, $quantity);
 
 // ...
 
-$cartItem = Cart::get($cartItem->getUniqueId());
+$cartItem = \Cart::get($cartItem->getUniqueId());
 ```
 
 ### Cart::content()
+
+```
+\Cart::content();
+```
 
 Get all items in the shopping cart.
 
 ### Cart::clear()
 
+```
+\Cart::clear();
+```
+
 Clear the shopping cart.
 
 ### Cart::count()
+
+```
+\Cart::count();
+```
 
 Return number of items in the shopping cart. This method does not summarize
 quantities of item. For example, there are 3 books and 1 iPhone in the
@@ -128,9 +140,9 @@ shopping cart, so this method returns 2.
 Return total price of all items in the shopping cart.
 
 ```php
-Cart::add(1, 'iPhone 7', 500, 1);
-Cart::add(1, 'iPad Pro', 700, 2);
-Cart::getTotal(); // return 1900
+\Cart::add(1, 'iPhone 7', 500, 1);
+\Cart::add(1, 'iPad Pro', 700, 2);
+\Cart::getTotal(); // return 1900
 ```
 
 ## Instances
@@ -138,18 +150,18 @@ Cart::getTotal(); // return 1900
 The package supports multiple instances of the cart. Some examples:
 
 ```php
-Cart::instance('shopping')->add('192ao12', 'Product 1', 100, 10);
+\Cart::instance('shopping')->add('192ao12', 'Product 1', 100, 10);
 
 // Store and get the content of the 'shopping' cart
-Cart::store->content();
+\Cart::store->content();
 
-Cart::instance('wishlist')->add('sdjk922', 'Product 2', 50, 1, ['size' => 'medium']);
+\Cart::instance('wishlist')->add('sdjk922', 'Product 2', 50, 1, ['size' => 'medium']);
 
 // Store and get the content of the 'wishlist' cart
-Cart::store()->content();
+\Cart::store()->content();
 
 // If you want to get the content of the 'shopping' cart again
-Cart::instance('shopping')->restore()->content();
+\Cart::instance('shopping')->restore()->content();
 ```
 
 **The default cart instance is called `default`, so when you're not using
@@ -157,9 +169,17 @@ instances,`Cart::content();` is the same as `Cart::instance('default')->content(
 
 ### Cart::instance()
 
+```
+\Cart::instance();
+```
+
 Set current instance name.
 
 ### Cart::currentInstance()
+
+```
+\Cart::currentInstance();
+```
 
 Get current instance name.
 
@@ -186,9 +206,9 @@ In order to use redis storage you also need to install `predis/predis` package.
 Persist current shopping cart instance to storage.
 
 ```php
-Cart::store($user->id);
-Cart::instance('cart')->store($user->id);
-Cart::instance('wishlist')->store($user->id);
+\Cart::store($user->id);
+\Cart::instance('cart')->store($user->id);
+\Cart::instance('wishlist')->store($user->id);
 ```
 
 ### Cart::restore()
@@ -196,9 +216,9 @@ Cart::instance('wishlist')->store($user->id);
 Restore shopping cart instance to storage.
 
 ```php
-Cart::restore($user->id);
-Cart::instance('cart')->restore($user->id);
-Cart::instance('wishlist')->restore($user->id);
+\Cart::restore($user->id);
+\Cart::instance('cart')->restore($user->id);
+\Cart::instance('wishlist')->restore($user->id);
 ```
 
 ### Cart::destroy()
@@ -206,9 +226,9 @@ Cart::instance('wishlist')->restore($user->id);
 Remove shopping cart instance from storage.
 
 ```php
-Cart::destroy($user->id);
-Cart::instance('cart')->destroy($user->id);
-Cart::instance('wishlist')->destroy($user->id);
+\Cart::destroy($user->id);
+\Cart::instance('cart')->destroy($user->id);
+\Cart::instance('wishlist')->destroy($user->id);
 ```
 
 ## Coupons
@@ -226,11 +246,15 @@ Related methods:
 Add coupon to cart.
 
 ```php
-Cart::addCoupon(new FixedDiscountCoupon($name, $discount));
-Cart::addCoupon(new PercentDiscountCoupon($name, 0.1)); // 10% discount
+\Cart::addCoupon(new FixedDiscountCoupon($name, $discount));
+\Cart::addCoupon(new PercentDiscountCoupon($name, 0.1)); // 10% discount
 ```
 
 ### Cart::coupons()
+
+```
+\Cart::coupons();
+```
 
 Returns all coupons.
 
@@ -239,10 +263,10 @@ Returns all coupons.
 Returns total price with applied coupons.
 
 ```php
-Cart::add(1, 'iPhone 7', 500, 1);
-Cart::add(1, 'iPad Pro', 700, 2);
-Cart::addCoupon(new FixedDiscountCoupon($name, 300));
-Cart::getTotal(); // return 1900 - 300 = 1600
+\Cart::add(1, 'iPhone 7', 500, 1);
+\Cart::add(1, 'iPad Pro', 700, 2);
+\Cart::addCoupon(new FixedDiscountCoupon($name, 300));
+\Cart::getTotal(); // return 1900 - 300 = 1600
 ```
 
 ## Security
