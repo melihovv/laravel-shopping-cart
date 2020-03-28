@@ -27,6 +27,27 @@ php artisan vendor:publish --provider="Melihovv\ShoppingCart\ServiceProvider"
 php artisan migrate
 ```
 
+### providers
+
+open your config/app.php file.
+Add a new line to the providers array:
+
+```
+/*
+* Package Service Providers...
+*/
+Melihovv\ShoppingCart\ServiceProvider::class,
+```
+
+### Aliases
+
+open your config/app.php file.
+Add a new line to the aliases array:
+
+```
+'Cart' => \Melihovv\ShoppingCart\Facades\ShoppingCart::class
+```
+
 ## Overview
 
 * [Usage](#usage)
