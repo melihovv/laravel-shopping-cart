@@ -79,7 +79,7 @@ class CartItem implements Arrayable
         }
 
         if (! is_int($quantity) || strlen($quantity) < 0) {
-            throw new InvalidArgumentException('Please supply a valid price.');
+            throw new InvalidArgumentException('Please supply a valid Quantity.');
         }
 
         $this->id = $id;
